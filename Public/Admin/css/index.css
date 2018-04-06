@@ -1,0 +1,12 @@
+body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+ul {
+    margin: 0;
+}
+#nav-top {
+    width: 100%;
+    height: 60px;
+    background: #438EB9;
+}
