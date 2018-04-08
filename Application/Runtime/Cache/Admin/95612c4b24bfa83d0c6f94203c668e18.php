@@ -1,17 +1,16 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>修改分类</title>
+    <title>添加分类</title>
 <bootstrap />
 </head>
 <body>
     <table class="table table-bordered table-hover">
-        <form class="form-gropu" action="{:U('Admin/Category/edit')}" method="post">
-            <input type="hidden" name="cid" value="" />
+        <form action="<?php echo U('Admin/Category/add');?>" method="post">
             <tr>
                 <th>分类名</th>
-                <td><input class="form-control modal-sm" type="text" name="cname" value="" /></td>
+                <td><input class="form-control modal-sm" type="text" name="cname" /></td>
             </tr>
             <tr>
                 <th>所属栏目</th>
@@ -24,11 +23,11 @@
             </tr>
             <tr>
                 <th>排序</th>
-                <td><input class="form-control modal-sm" type="text" name="sort" value="" /></td>
+                <td><input class="form-control modal-sm" type="text" name="sort" /></td>
             </tr>
             <tr>
                 <th>关键词</th>
-                <td><input class="form-control modal-sm" type="text" name="keyword" value="" /></td>
+                <td><input class="form-control modal-sm" type="text" name="keyword" /></td>
             </tr>
             <tr>
                 <th>描述</th>

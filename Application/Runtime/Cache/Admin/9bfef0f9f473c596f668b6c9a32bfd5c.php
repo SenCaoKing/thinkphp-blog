@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -26,8 +26,8 @@
             <td></td>
             <td></td>
             <td>
-                <a href="{:U('Admin/Category/edit')}">修改</a>
-                <a href="javascript:if(confirm('确定要删除吗？')) location='{:U('Admin/Category/delete')}'">删除</a>
+                <a href="<?php echo U('Admin/Category/edit');?>">修改</a>
+                <a href="javascript:if(confirm('确定要删除吗？')) location='<?php echo U('Admin/Category/delete');?>'">删除</a>
             </td>
         </tr>
     </table>    

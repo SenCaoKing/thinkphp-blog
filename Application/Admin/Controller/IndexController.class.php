@@ -7,6 +7,7 @@ class IndexController extends AuthController {
     public function index(){
         $this->display();
     }
+    
     // 欢迎页面
     public function welcome(){
         $this->diaplay();

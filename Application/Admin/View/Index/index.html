@@ -9,7 +9,7 @@
 <script type="text/javascript" src="__PUBLIC__/Admin/js/index.js"></script>
 </head>
 <style type="text/css">
-    body {
+    /*body {
     overflow-x: hidden;
     overflow-y: hidden;
     }
@@ -114,7 +114,115 @@
         width: 1175px;
         height: 590px;
         float: left;
-    }
+    }*/
+
+
+body {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+ul {
+  margin: 0;
+}
+#nav-top {
+  width: 100%;
+  height: 60px;
+  background: #438EB9;
+}
+#nav-top .nt-logo {
+  width: 190px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+  float: left;
+  position: relative;
+}
+#nav-top .nt-logo a {
+  display: block;
+  width: 190px;
+  height: 60px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+#nav-top .nt-nav {
+  width: 700px;
+  height: 60px;
+  float: left;
+}
+#nav-top .nt-nav li {
+  margin: 4px 20px;
+  width: 60px;
+  height: 50px;
+  text-align: center;
+  cursor: pointer;
+   float: left;
+}
+#nav-top .nt-nav li .nt-ico {
+  font-size: 25px;
+}
+#nav-top .nt-nav .ntn-active {
+  background: #62A8D1;
+}
+#nav-top .nt-msg {
+  width: 400px;
+  height: 60px;
+  float: right;
+}
+#nav-left {
+  width: 190px;
+  height: 600px;
+  border-right: 1px solid #CCCCCC;
+  float: left;
+  background: #F2F2F2;
+}
+#nav-left .nl-con {
+  display: none;
+}
+#nav-left .nl-con dl {
+  margin: 0;
+}
+#nav-left .nl-con dl dt {
+  padding-left: 15px;
+  width: 190px;
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid #E5E5E5;
+}
+#nav-left .nl-con dl dt span {
+  margin-right: 10px;
+}
+#nav-left .nl-con dl dd {
+  padding-left: 30px;
+  width: 189px;
+  height: 40px;
+  line-height: 40px;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #E5E5E5;
+  background: #fff;
+  position: relative;
+}
+#nav-left .nl-con dl dd span {
+  margin-right: 5px;
+}
+#nav-left .nl-con dl dd a {
+  display: block;
+  width: 190px;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#nav-left .nl-show {
+  display: block;
+}
+#content {
+  width: 1175px;
+  height: 590px;
+  float: left;
+}
 </style>
 <body>
     <!-- 顶部导航菜单开始 -->
@@ -162,11 +270,11 @@
                     <span class="fa fa-th"></span>文章管理
                 </dt>
                 <dd>
-                    <a href="" target="right_content"></a>
+                    <a href="{:U('Admin/Article/add')}" target="right_content"></a>
                     <span class="fa fa-caret-right"></span>添加文章
                 </dd>
                 <dd>
-                    <a href="" target="right_content"></a>
+                    <a href="{:U('Admin/Article/index')}" target="right_content"></a>
                     <span class="fa fa-caret-right"></span>文章列表
                 </dd>
             </dl>
@@ -175,11 +283,11 @@
                     <span class="fa fa-tags"></span>标签管理
                 </dt>
                 <dd>
-                    <a href="" target="right_content"></a>
+                    <a href="{:U('Admin/Tag/add')}" target="right_content"></a>
                     <span class="fa fa-caret-right"></span>添加标签
                 </dd>
                 <dd>
-                    <a href="" target="right_content"></a>
+                    <a href="{:U('Admin/Tag/index')}" target="right_content"></a>
                     <span class="fa fa-caret-right"></span>标签列表
                 </dd>
             </dl>
@@ -188,11 +296,11 @@
                     <span class="fa fa-columns"></span>分类管理
                 </dt>
                 <dd>
-                    <a href="" target="right_content"></a>
+                    <a href="{:U('Admin/Category/add')}" target="right_content"></a>
                     <span class="fa fa-caret-right"></span>添加分类
                 </dd>
                 <dd>
-                    <a href="" target="right_content"></a>
+                    <a href="{:U('Admin/Category/index')}" target="right_content"></a>
                     <span class="fa fa-caret-right"></span>分类列表
                 </dd>
             </dl>
@@ -206,11 +314,11 @@
                     <span class="fa fa-th"></span>评论管理
                 </dt>
                 <dd>
-                    <a href="" target="right_content"></a>
+                    <a href="{:U('Admin/Article/add')}" target="right_content"></a>
                     <span class="fa fa-caret-right"></span>待审评论
                 </dd>
                 <dd>
-                    <a href="" target="right_content"></a>
+                    <a href="{:U('Admin/Article/index')}" target="right_content"></a>
                     <span class="fa fa-caret-right"></span>已审评论
                 </dd>
             </dl>
@@ -219,11 +327,11 @@
                     <span class="fa fa-th"></span>留言管理
                 </dt>
                 <dd>
-                    <a href="" target="right_content"></a>
+                    <a href="{:U('Admin/Article/add')}" target="right_content"></a>
                     <span class="fa fa-caret-right"></span>待审留言
                 </dd>
                 <dd>
-                    <a href="" target="right_content"></a>
+                    <a href="{:U('Admin/Article/index')}" target="right_content"></a>
                     <span class="fa fa-caret-right"></span>已审留言
                 </dd>
             </dl>
@@ -237,19 +345,19 @@
                     <span class="fa fa-th"></span>回收管理
                 </dt>
                 <dd>
-                    <a href="" target="right_content"></a>
+                    <a href="{:U('Admin/Article/add')}" target="right_content"></a>
                     <span class="fa fa-caret-right"></span>已删文章
                 </dd>
                 <dd>
-                    <a href="" target="right_content"></a>
+                    <a href="{:U('Admin/Article/index')}" target="right_content"></a>
                     <span class="fa fa-caret-right"></span>已删评论
                 </dd>
                 <dd>
-                    <a href="" target="right_content"></a>
+                    <a href="{:U('Admin/Article/index')}" target="right_content"></a>
                     <span class="fa fa-caret-right"></span>已删留言
                 </dd>
                 <dd>
-                    <a href="" target="right_content"></a>
+                    <a href="{:U('Admin/Article/index')}" target="right_content"></a>
                     <span class="fa fa-caret-right"></span>已删链接
                 </dd>
             </dl>
@@ -287,13 +395,21 @@
     <!-- 右侧内容结束 -->
 
 <script type="text/javascript">
+    // $(function(){
+    //     $("#nav-top .nt-nav li").click(function(event) {
+    //         var i=$(this).index();
+    //         $(this).addClass('ntn-active').siblings('li').removeClass('ntn-active');
+    //         $('#nav-left .nl-con').eq(i).addClass('nl-show').siblings('.nl-con').removeClass('nl-show');
+    //     });
+    // });
+    // 
     $(function(){
         $("#nav-top .nt-nav li").click(function(event) {
-            var i=$(this).index();
-            $(this).addClass('ntn-active').siblings('li').removeClass('ntn-active');
-            $('#nav-left .nl-con').eq(i).addClass('nl-show').siblings('.nl-con').removeClass('nl-show');
-        });
-    });
+       var i=$(this).index();
+      $(this).addClass('ntn-active').siblings('li').removeClass('ntn-active');
+       $('#nav-left .nl-con').eq(i).addClass('nl-show').siblings('.nl-con').removeClass('nl-show');
+   });
+})
 </script>
 </body>
 </html>
