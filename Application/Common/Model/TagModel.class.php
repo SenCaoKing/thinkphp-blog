@@ -6,7 +6,7 @@ Class TagModel extends Model{
     public function addData(){
         $str=I('post.tnames');
         if(empty($str)){
-            $this->error='标签名不能为空';
+            $this->error('标签名不能为空');
             return false;
         }else{
             $str=nl2br(trim($str));
@@ -44,16 +44,27 @@ Class TagModel extends Model{
         }
     }
 
-    // 获取全部数据
+    // // 删除数据
+    // public function deleteData(){
+    //     $tid=I('get.tid',0,'intval');
+    //     if($this->where("tid=$tid")->delete()){
+    //         return true;
+    //     }else{
+    //         return false;
+    //     }
+    // }
+    
+    // 获得全部数据
     public function getAllData(){
         return $this->select();
     }
 
     // 根据tid获取单条数据
     public function getDataByTid($tid=null){
-        $tid=is_null($tid) ? I('get.tid',0,intval) : $tid;
+        $tid=is_null($tid) ? I('get.tid',0,'intval') : $tid;
         return $this->where("tid=$tid")->find();
     }
+
 
 }
 

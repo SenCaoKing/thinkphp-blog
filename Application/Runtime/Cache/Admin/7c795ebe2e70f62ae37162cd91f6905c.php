@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8" />
     <title>标签列表</title>
-<bootstrap />
+<script type="text/javascript" src="/Public/static/jquery-1.7.2.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/Public/static/bootstrap-3.3.2/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/Public/static/bootstrap-3.3.2/css/bootstrap-theme.min.css" />
+<link rel="stylesheet" type="text/css" href="/Public/static/font-awesome-4.3.0/css/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="/Public/static/bjy.css" />
+<script type="text/javascript" src="/Public/static/bootstrap-3.3.2/js/bootstrap.min.js"></script>
 </head>
 <body>
     <table class="table table-bordered table-striped table-hover table-condensed">
@@ -14,14 +19,14 @@
                 <th width="10%">操作</th>
             </tr>
         </thead>
-        <tr>
-            <td></td>
-            <td></td>
-            <td>
-                <a href="">修改</a>
-                <a href="javascript:if(confirm('确定要删除吗？')) location=''">删除</a>
-            </td>
-        </tr>
+        <?php if(is_array($data)): foreach($data as $key=>$v): ?><tr>
+                <td><?php echo ($v['tid']); ?></td>
+                <td><?php echo ($v['tname']); ?></td>
+                <td>
+                    <a href="<?php echo U('Admin/Tag/edit',array('tid'=>$v['tid']));?>">修改</a>
+                    <a href="javascript:if(confirm('确定要删除吗？')) location='<?php echo U('Admin/Tag/delete',array('tid'=>$v['tid']));?>'">删除</a>
+                </td>
+            </tr><?php endforeach; endif; ?>
     </table>    
 </body>
 </html>
