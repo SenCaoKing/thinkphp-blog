@@ -17,7 +17,9 @@
                 <td>
                     <select class="form-control modal-sm" name="pid">
                         <option value="0">顶级栏目</option>
-                        <option value="">次级栏目</option>
+                        <foreach name="data" key="k" item="v">
+                            <option value="{$v['cid']}">{$v['_name']}</option>  
+                        </foreach>
                     </select>
                 </td>
             </tr>

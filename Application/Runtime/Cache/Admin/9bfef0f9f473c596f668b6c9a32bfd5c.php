@@ -22,19 +22,19 @@
                 <th width="10%">操作</th>
             </tr>
         </thead>
-        <tr>
-            <td></td>
-            <td>
-                <input class="form-control" type="text" value="" />
-            </td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-                <a href="<?php echo U('Admin/Category/edit');?>">修改</a>
-                <a href="javascript:if(confirm('确定要删除吗？')) location='<?php echo U('Admin/Category/delete');?>'">删除</a>
-            </td>
-        </tr>
+        <?php if(is_array($data)): foreach($data as $key=>$v): ?><tr>
+                <td><?php echo ($v['cid']); ?></td>
+                <td>
+                    <input class="form-control" type="text" value="<?php echo ($v['sort']); ?>" />
+                </td>
+                <td><?php echo ($v['_name']); ?></td>
+                <td><?php echo ($v['keyword']); ?></td>
+                <td><?php echo ($v['des']); ?></td>
+                <td>
+                    <a href="<?php echo U('Admin/Category/edit',array('cid'=>$v['cid']));?>">修改</a>
+                    <a href="javascript:if(confirm('确定要删除吗？')) location='<?php echo U('Admin/Category/delete',array('cid'=>$v['cid']));?>'">删除</a>
+                </td>
+            </tr><?php endforeach; endif; ?>
     </table>    
 </body>
 </html>

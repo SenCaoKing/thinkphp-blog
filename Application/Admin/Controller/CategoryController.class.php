@@ -20,12 +20,12 @@ class CategoryController extends AuthController {
 
     // 分类列表首页
     public function index(){
-        $this->assign('data',$this->categoryData());
-            p($data);exit;
+        $this->assign('data',$this->categoryData);
+        //p($this->categoryData);die;
         $this->display();
     }
 
-     // 添加分类
+    // 添加分类
     public function add(){
         if(IS_POST){
             if($this->db->addData()){
@@ -39,8 +39,31 @@ class CategoryController extends AuthController {
         }   
     }
 
-     // 修改分类
+    // 修改分类
     public function edit(){
-        $this->display();
+        if(IS_POST){
+            if($this->db->editData()){
+                $this->success('修改成功');
+            }else{
+                $this->error($this->db->getError());
+            }
+        }else{
+            $cid=I('get.cid',0,'intval');
+            $onedata=$this->db->getDataByCid($cid);
+            $this->assign('data',$this->categoryData);
+            $this->assign('onedata',$onedata);
+            //p($onedata);
+            $this->display();
+        }
     }
+
+    // 删除分类
+    public function delete(){
+        if($this->db->deleteData()){
+            $this->success('删除成功');
+        }else{
+            $this->error('删除失败');
+        }
+    }
+
 }
