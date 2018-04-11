@@ -98,13 +98,13 @@ final class Data
      */
     static public function tree($data, $title, $fieldPri = 'cid', $fieldPid = 'pid')
     {
-        if（!is_array($data) || empty($data)
+        if (!is_array($data) || empty($data))
             return array();
         $arr = Data::channelList($data, 0, '', $fieldPri, $fieldPid);
         foreach ($arr as $k => $v) {
-            $atr = "";
+            $str = "";
             if ($v['_level'] > 2) {
-                for ($i = 1, $i < $v['_level'] - 1; $i++) {
+                for ($i = 1; $i < $v['_level'] - 1; $i++) {
                     $str .= "|&nbsp;&nbsp;&nbsp;&nbsp;";
                 }
             }
