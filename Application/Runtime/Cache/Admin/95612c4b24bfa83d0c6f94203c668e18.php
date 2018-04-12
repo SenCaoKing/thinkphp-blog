@@ -32,12 +32,12 @@
             </tr>
             <tr>
                 <th>关键词</th>
-                <td><input class="form-control modal-sm" type="text" name="keyword" /></td>
+                <td><input class="form-control modal-sm" type="text" name="keywords" /></td>
             </tr>
             <tr>
                 <th>描述</th>
                 <td>
-                    <textarea class="form-control modal-sm bjy-noresize" name="des"></textarea>
+                    <textarea class="form-control modal-sm bjy-noresize" name="description"></textarea>
                 </td>
             </tr>
             <tr>
