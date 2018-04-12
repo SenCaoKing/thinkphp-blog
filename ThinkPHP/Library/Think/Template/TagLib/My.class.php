@@ -15,7 +15,7 @@ class My extends TagLib {
         return '<script type="text/javascript" src="__PUBLIC__/static/jquery-1.7.2.min.js"></script>';
     }
     // 引入bootstrap的css组件
-    public function _bjycss($atg,$content) {
+    public function _bjycss($tag,$content) {
         return '<link rel="stylesheet" type="text/css" href="__PUBLIC__/static/bjy.css" />';
     }
     // 引入jquery、 bootstrap css组件、 bootstrap js组件
