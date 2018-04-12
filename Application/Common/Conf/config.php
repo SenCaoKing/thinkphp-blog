@@ -9,7 +9,6 @@ return array(
     'DB_PORT'               =>  '3306',        // 端口
     'DB_PREFIX'             =>  'tp_',    // 数据库表前缀
     //************************定义标签*************************
-    'TAGLIB_BUILD_IN'       =>  'cx,my',
-    // 'TAGLIB_BUILD_IN'       =>  'cx,Common\Tag\My',
+    'TAGLIB_BUILD_IN'       =>  'cx,Common\Tag\My',
     
 );
