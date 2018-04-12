@@ -14,7 +14,7 @@ class CategoryController extends AuthController {
         // 初始化时实例化category model
         $this->db=D('Category');
         // 获取category数据并赋值给$categoryData
-        $this->categoryData=$this->db->getData();
+        $this->categoryData=$this->db->getAllData();
     }
 
 
@@ -27,6 +27,8 @@ class CategoryController extends AuthController {
 
     // 添加分类
     public function add(){
+        // $data=$this->db->getAllData();
+        // p($data);die;
         if(IS_POST){
             if($this->db->addData()){
                 $this->success('分类添加成功');

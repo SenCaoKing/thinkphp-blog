@@ -28,8 +28,8 @@
                     <input class="form-control" type="text" value="<?php echo ($v['sort']); ?>" />
                 </td>
                 <td><?php echo ($v['_name']); ?></td>
-                <td><?php echo ($v['keyword']); ?></td>
-                <td><?php echo ($v['des']); ?></td>
+                <td><?php echo ($v['keywords']); ?></td>
+                <td><?php echo ($v['description']); ?></td>
                 <td>
                     <a href="<?php echo U('Admin/Category/edit',array('cid'=>$v['cid']));?>">修改</a>
                     <a href="javascript:if(confirm('确定要删除吗？')) location='<?php echo U('Admin/Category/delete',array('cid'=>$v['cid']));?>'">删除</a>
