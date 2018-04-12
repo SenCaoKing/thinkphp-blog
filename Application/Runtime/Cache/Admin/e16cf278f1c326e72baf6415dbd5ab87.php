@@ -1,14 +1,30 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>添加文章</title>
-<bootstrap />
+<script type="text/javascript" src="/Public/static/jquery-1.7.2.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/Public/static/bootstrap-3.3.2/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/Public/static/bootstrap-3.3.2/css/bootstrap-theme.min.css" />
+<link rel="stylesheet" type="text/css" href="/Public/static/font-awesome-4.3.0/css/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="/Public/static/bjy.css" />
+<script type="text/javascript" src="/Public/static/bootstrap-3.3.2/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/Public/static/iCheck-1.0.2/icheck.min.js"></script>
+<link rel="stylesheet" href="/Public/static/iCheck-1.0.2/skins/all.css" />
+<script>
+$(document).ready(function(){
+    $('.icheck').iCheck({
+        checkboxClass: "icheckbox_square-blue",
+        radioClass: "iradio_square-blue",
+        increaseArea: 20%
+    });
+});
+</script>
 
 
 </head>
 <body>
-    <form class="form-group" action="{:U('Admin/Article/add')}" method="post">
+    <form class="form-group" action="<?php echo U('Admin/Article/add');?>" method="post">
         <table class="table table-bordered table-striped table-hover table-condensed">
             <tr>
                 <th>所属分类</th>
@@ -47,7 +63,14 @@
             <tr>
                 <th>内容</th>
                 <td>
-                    <ueditor name="content" />
+                    <script id="container" name="content" type="text/plain">
+    
+</script>
+<script type="text/javascript" src="/Public/static/ueditor1_4_3/ueditor.config.js"></script>
+<script type="text/javascript" src="/Public/static/ueditor1_4_3/ueditor.all.js"></script>
+<script type="text/javascript">
+    var ue = UE.getEditor('container');
+</script>
                 </td>
             </tr>
             <tr>
