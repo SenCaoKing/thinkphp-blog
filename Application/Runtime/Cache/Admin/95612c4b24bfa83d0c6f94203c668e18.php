@@ -11,8 +11,8 @@
 <script type="text/javascript" src="/Public/static/bootstrap-3.3.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <table class="table table-bordered table-hover">
-        <form action="<?php echo U('Admin/Category/add');?>" method="post">
+    <form action="<?php echo U('Admin/Category/add');?>" method="post">
+        <table class="table table-bordered table-hover">
             <tr>
                 <th>分类名</th>
                 <td><input class="form-control modal-sm" type="text" name="cname" /></td>
@@ -22,7 +22,7 @@
                 <td>
                     <select class="form-control modal-sm" name="pid">
                         <option value="0">顶级栏目</option>
-                        <?php if(is_array($data)): foreach($data as $k=>$v): ?><option value="<?php echo ($v['cid']); ?>"><?php echo ($v['_name']); ?></option><?php endforeach; endif; ?>
+                        <?php if(is_array($data)): foreach($data as $k=>$v): ?><option value="<?php echo ($v['cid']); ?>" <?php if($cid == $v['cid']): ?>selected="selected"<?php endif; ?> ><?php echo ($v['_name']); ?></option><?php endforeach; endif; ?>
                     </select>
                 </td>
             </tr>
@@ -46,7 +46,7 @@
                     <input class="btn btn-default" type="submit" value="提交" />
                 </td>
             </tr>
-        </form>
-    </table>   
+        </table>
+    </form>
 </body>
 </html>
