@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <title>添加文章</title>
 <bootstrap />
-
+<style type="text/css">
+    .inputword{
+        margin-left: 15px;
+        margin-right: 5px;
+    }
+</style>
 
 </head>
 <body>
@@ -14,8 +19,9 @@
                 <th>所属分类</th>
                 <td>
                     <select class="form-control modal-sm" name="cid">
-                        <!-- <foreach></foreach> -->
-                        <option>请选择</option>
+                        <foreach name="allCategory" item="v">
+                            <option value="{$v['cid']}">{$v['_name']}</option>
+                        </foreach>
                     </select>
                 </td>
             </tr>
@@ -34,8 +40,10 @@
             <tr>
                 <th>标签</th>
                 <td>
-                    <span class="inputword">RRR</span>
-                    <input class="icheck" type="checkbox" name="tid[]" value="" />
+                    <foreach name="allTag" item="v">
+                        <span class="inputword">{$v['tname']}</span>
+                        <input class="icheck" type="checkbox" name="tid[]" value="{$v['tid']}" />
+                    </foreach>
                 </td>
             </tr>
             <tr>

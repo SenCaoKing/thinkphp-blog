@@ -13,12 +13,35 @@ class ArticleController extends AuthController{
 
     // 文章列表
     public function index(){
-        echo 'index';
         $this->display();
     }
 
     // 添加文章
     public function add(){
-        $this->display();
+        if(IS_POST){
+            $data=I('post.');
+            p($data);
+        }else{
+            $allCategory=D('Category')->getAllData();
+            if(empty($allCategory)){
+                $this->error('请先添加分类');
+            }
+            $allTag=D('Tag')->getAllData();
+            $this->assign('allCategory',$allCategory);
+            $this->assign('allTag',$allTag);
+            $this->display();
+        }  
     }
+
+    // 修改文章
+    public function edit(){
+        if(IS_POST){
+
+        }else{
+            $this->display();
+        }
+    }
+
+
+
 }

@@ -20,7 +20,12 @@ $(document).ready(function(){
     });
 });
 </script>
-
+<style type="text/css">
+    .inputword{
+        margin-left: 15px;
+        margin-right: 5px;
+    }
+</style>
 
 </head>
 <body>
@@ -30,8 +35,7 @@ $(document).ready(function(){
                 <th>所属分类</th>
                 <td>
                     <select class="form-control modal-sm" name="cid">
-                        <!-- <foreach></foreach> -->
-                        <option>请选择</option>
+                        <?php if(is_array($allCategory)): foreach($allCategory as $key=>$v): ?><option value="<?php echo ($v['cid']); ?>"><?php echo ($v['_name']); ?></option><?php endforeach; endif; ?>
                     </select>
                 </td>
             </tr>
@@ -50,8 +54,8 @@ $(document).ready(function(){
             <tr>
                 <th>标签</th>
                 <td>
-                    <span class="inputword">RRR</span>
-                    <input class="icheck" type="checkbox" name="tid[]" value="" />
+                    <?php if(is_array($allTag)): foreach($allTag as $key=>$v): ?><span class="inputword"><?php echo ($v['tname']); ?></span>
+                        <input class="icheck" type="checkbox" name="tid[]" value="<?php echo ($v['tid']); ?>" /><?php endforeach; endif; ?>
                 </td>
             </tr>
             <tr>
