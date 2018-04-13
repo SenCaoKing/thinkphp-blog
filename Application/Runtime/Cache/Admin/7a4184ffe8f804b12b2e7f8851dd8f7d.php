@@ -53,5 +53,8 @@ $(document).ready(function(){
                 </td>
             </tr><?php endforeach; endif; ?>
     </table>
+    <div style="text-align: center;">
+        <?php echo ($page); ?>
+    </div>
 </body>
 </html>

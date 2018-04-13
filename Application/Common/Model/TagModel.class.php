@@ -57,7 +57,7 @@ Class TagModel extends Model{
     }
 
     /**
-     * 根据tids查询tname
+     * 获取tname
      * @param  array $tids    文章id
      * @return array $tnames  标签名
      */
