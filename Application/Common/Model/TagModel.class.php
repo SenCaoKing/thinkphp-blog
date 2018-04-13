@@ -1,6 +1,7 @@
 <?php
 namespace Common\Model;
 use Think\Model;
+
 Class TagModel extends Model{
     // 添加标签
     public function addData(){
@@ -44,16 +45,6 @@ Class TagModel extends Model{
         }
     }
 
-    // // 删除数据
-    // public function deleteData(){
-    //     $tid=I('get.tid',0,'intval');
-    //     if($this->where("tid=$tid")->delete()){
-    //         return true;
-    //     }else{
-    //         return false;
-    //     }
-    // }
-    
     // 获得全部数据
     public function getAllData(){
         return $this->select();
@@ -63,6 +54,18 @@ Class TagModel extends Model{
     public function getDataByTid($tid=null){
         $tid=is_null($tid) ? I('get.tid',0,'intval') : $tid;
         return $this->where("tid=$tid")->find();
+    }
+
+    /**
+     * 根据tids查询tname
+     * @param  array $tids    文章id
+     * @return array $tnames  标签名
+     */
+    public function getTnames($tids){
+        foreach($tids as $k => $v){
+            $tnames[] = $this->where("tid=$v")->getField('tname');
+        }
+        return $tnames;
     }
 
 

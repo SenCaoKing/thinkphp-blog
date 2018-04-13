@@ -26,7 +26,7 @@ class CategoryController extends AuthController {
     }
 
     // 添加分类
-    public function add(){
+    public function add(){ 
         // $data=$this->db->getAllData();
         // p($data);die;
         if(IS_POST){

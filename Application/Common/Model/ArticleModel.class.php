@@ -1,6 +1,7 @@
 <?php
 namespace Common\Model;
 use Think\Model;
+
 class ArticleModel extends Model{
     // 自动验证
     protected $_validate=array(
