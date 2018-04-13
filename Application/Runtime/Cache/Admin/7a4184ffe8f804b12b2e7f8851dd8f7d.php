@@ -22,11 +22,36 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-    <table>
-        <tr>
-            <th>标题</th>
-            <td></td>
-        </tr>
+    <table class="table table-bordered table-striped table-hover table-condensed">
+        <thead>
+            <tr>
+                <th width="2%">aid</th>
+                <th width="5%">所属栏目</th>
+                <th width="5%">标题</th>
+                <th width="5%">作者</th>
+                <th width="5%">标签</th>
+                <th width="5%">是否显示</th>
+                <th width="5%">是否置顶</th>
+                <th width="5%">点击数</th>
+                <th width="5%">发布时间</th>
+                <th width="5%">操作</th>
+            </tr>
+        </thead>
+        <?php if(is_array($data)): foreach($data as $key=>$v): ?><tr>
+                <td><?php echo ($v['aid']); ?></td>
+                <td><?php echo ($v['cname']); ?></td>
+                <td><?php echo ($v['title']); ?></td>
+                <td><?php echo ($v['author']); ?></td>
+                <td><?php echo ($v['tags']); ?></td>
+                <td><?php echo ($v['is_show']); ?></td>
+                <td><?php echo ($v['is_top']); ?></td>
+                <td><?php echo ($v['click']); ?></td>
+                <td><?php echo (date('Y-m-d H:i:s',$v['addtime'])); ?></td>
+                <td>
+                    <a href="<?php echo U('Admin/Article/edit',array('aid'=>$v['aid']));?>">修改</a>
+                    <a href="<?php echo U('Admin/Article/delete',array('aid'=>$v['aid']));?>">删除</a>
+                </td>
+            </tr><?php endforeach; endif; ?>
     </table>
 </body>
 </html>
