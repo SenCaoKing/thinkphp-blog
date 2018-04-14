@@ -128,7 +128,8 @@ class ArticleModel extends Model{
         $count=$this->where(array('is_delete'=>$status))->count();
         $page=new \Think\Page($count,$limit);
         $show=$page->show();
-        $list=$this->where('is_delete=0')->order('addtime')->limit($page->firstRow.','.$page->listRows)->select();
+        $list=$this->where(array('is_delete'=>$status))->order('addtime')->limit($page->firstRow.','.$page->listRows)->select();
+        // p($list);
         foreach($list as $k => $v){
             $tids=M('article_tag')->where(array('aid'=>$v['aid']))->getField('tid',true);
             if(empty($tids)){
