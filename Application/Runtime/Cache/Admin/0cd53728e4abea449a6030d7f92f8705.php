@@ -44,7 +44,7 @@ $(document).ready(function(){
                 <td><?php echo ($v['author']); ?></td>
                 <td><?php echo ($v['title']); ?></td>
                 <td>
-                    <a href="<?php echo U('Admin/Article/delete',array('aid'=>$v['aid']));?>">恢复</a>
+                    <a href="<?php echo U('Admin/Article/recover',array('aid'=>$v['aid']));?>">恢复</a>
                     <a href="javascript:if(confirm('确定要删除吗？')) location='<?php echo U('Admin/Article/delete',array('aid'=>$v['aid']));?>'">彻底删除</a>
                 </td>
             </tr><?php endforeach; endif; ?>

@@ -72,7 +72,19 @@ class ArticleModel extends Model{
         }
     }
 
-    // 删除数据
+    // 放入回收站
+    public function recycleData(){
+        $aid=I('get.aid',0,'intval');
+        return $this->changeStatus($aid,'is_delete',1);
+    }
+
+    // 恢复删除
+    public function recoverData($aid=0){
+        $aid=I('get.aid','intval');
+        return $this->changeStatus($aid,'is_delete',0);
+    }
+
+    // 彻底删除
     public function deleteData(){
         $aid=I('get.aid',0,'intval');
         D('ArticlePic')->deleteData($aid);
@@ -81,22 +93,18 @@ class ArticleModel extends Model{
         return true;
     }
 
-    // 放入回收站
-    public function recycleData(){
-        $aid=I('get.aid',0,'intval');
-        $this->where("aid=$aid")->setField('is_delete',1);
-        return true;
-    }
-
     /**
-     * 添加数据
+     * 更改状态
      * @param  string $aid   文章id
      * @param  string $field 更改的字段
      * @param  array  $value 更改的内容
      */
     public function changeStatus($aid,$field,$value){
-        $this->where("aid=$aid")->setField($field,$value);
-        return true;
+        if($this->where("aid=$aid")->setField($field,$value)){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     // 获得全部数据
@@ -116,8 +124,8 @@ class ArticleModel extends Model{
     }
 
     // 获得分页数据
-    public function getPageData($limit=1){
-        $count=$data=$this->where('is_delete=0')->count();
+    public function getPageData($status=0,$limit=1){
+        $count=$this->where(array('is_delete'=>$status))->count();
         $page=new \Think\Page($count,$limit);
         $show=$page->show();
         $list=$this->where('is_delete=0')->order('addtime')->limit($page->firstRow.','.$page->listRows)->select();
