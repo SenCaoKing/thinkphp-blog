@@ -51,14 +51,14 @@ class ArticleModel extends Model{
 
     // 获得全部数据
     public function getAllData(){
-        $data=$this->where('is_delete=0')->order('addtime')->select();
+        $data=$this->order('addtime')->select();
         foreach($data as $k => $v){
             $tids=M('article_tag')->where(array('aid'=>$v['aid']))->getField('tid',true);
             if(empty($tids)){
                 $data[$k]['tnames']='';
             }else{
                 $tnames=D('Tag')->getTnames($tids);
-                $data[$k]['tnames']=implode('、 ', $tnames);
+                $data[$k]['tnames']=implode('、', $tnames);
             }
             $data[$k]['cname']=D('Category')->getDataByCid($v['cid'],'cname');
         }
@@ -66,12 +66,11 @@ class ArticleModel extends Model{
     }
 
     // 获得分页数据
-    public function getPageData($limit=10){
+    public function getPageData($limit=1){
         $count=$data=$this->where('is_delete=0')->count();
         $page=new \Think\Page($count,$limit);
         $show=$page->show();
         $list=$this->where('is_delete=0')->order('addtime')->limit($page->firstRow.','.$page->listRows)->select();
-        p($list);
         foreach($list as $k => $v){
             $tids=M('article_tag')->where(array('aid'=>$v['aid']))->getField('tid',true);
             if(empty($tids)){

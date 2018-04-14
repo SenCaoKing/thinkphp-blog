@@ -55,7 +55,7 @@ $(document).ready(function(){
                 <th>标签</th>
                 <td>
                     <?php if(is_array($allTag)): foreach($allTag as $key=>$v): ?><span class="inputword"><?php echo ($v['tname']); ?></span>
-                        <input class="icheck" type="checkbox" name="tid[]" value="<?php echo ($v['tid']); ?>" /><?php endforeach; endif; ?>
+                        <input class="icheck" type="checkbox" name="tids[]" value="<?php echo ($v['tid']); ?>" /><?php endforeach; endif; ?>
                 </td>
             </tr>
             <tr>

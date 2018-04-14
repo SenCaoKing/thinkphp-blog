@@ -18,7 +18,6 @@ class ArticleController extends AuthController{
         $data=$this->db->getPageData();
         //p($data);
         $this->assign('data',$data['data']);
-        // p($data);
         $this->assign('page',$data['page']);
         $this->display();
     }
