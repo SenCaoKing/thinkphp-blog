@@ -22,33 +22,39 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-    <form action="<?php echo U('Admin/Config/config');?>" method="post">
+    <form action="<?php echo U('Admin/Config/index');?>" method="post">
         <table class="table table-bordered table-hover">
             <tr>
                 <th>网站名: </th>
                 <td>
-                    <input class="form-control modal-sm" type="text" name="WEB_NAME" />
+                    <input class="form-control modal-sm" type="text" name="WEB_NAME" value="<?php echo ($data['WEB_NAME']); ?>" />
                 </td>
             </tr>
             <tr>
                 <th>关键字</th>
                 <td>
-                    <textarea class="form-control modal-sm bjy-noresize" name="WEB_KEYWORD" rows="5" placeholder=""></textarea>
+                    <textarea class="form-control modal-sm bjy-noresize" name="WEB_KEYWORD" rows="5" placeholder=""><?php echo ($data['WEB_KEYWORD']); ?></textarea>
                 </td>
             </tr>
             <tr>
                 <th>描述</th>
                 <td>
-                    <textarea class="form-control modal-sm bjy-noresize" name="WEB_KEYWORD" rows="5" placeholder=""></textarea>
+                    <textarea class="form-control modal-sm bjy-noresize" name="WEB_DESCRIPTION" rows="5" placeholder=""><?php echo ($data['WEB_DESCRIPTION']); ?></textarea>
                 </td>
             </tr>
             <tr>
                 <th>网站状态</th>
                 <td>
                     <span class="inputword">开启</span>
-                    <input class="icheck" type="radio" name="WEB_STATUS" value="1" checked="checked" />
+                    <input class="icheck" type="radio" name="WEB_STATUS" value="1" <?php if($data['WEB_STATUS'] == 1): ?>checked="checked"<?php endif; ?> />
                     <span class="inputword">关闭</span>
-                    <input class="icheck" type="radio" name="WEB_STATUS" value="0" />
+                    <input class="icheck" type="radio" name="WEB_STATUS" value="0" <?php if($data['WEB_STATUS'] == 0): ?>checked="checked"<?php endif; ?> />
+                </td>
+            </tr>
+            <tr>
+                <th></th>
+                <td>
+                    <input class="btn btn-default" type="submit" value="提交" />
                 </td>
             </tr>
         </table>
