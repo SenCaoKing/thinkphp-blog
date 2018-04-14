@@ -16,7 +16,7 @@ class ArticleController extends AuthController{
     // 文章列表
     public function index(){
         $data=$this->db->getPageData();
-        //p($data);
+        // p($data);
         $this->assign('data',$data['data']);
         $this->assign('page',$data['page']);
         $this->display();

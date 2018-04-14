@@ -40,14 +40,14 @@ class ArticleModel extends Model{
     }
 
     // 修改数据
-    public function editData(){
+    // public function editData(){
 
-    }
+    // }
 
-    // 删除数据
-    public function deleteData(){
+    // // 删除数据
+    // public function deleteData(){
 
-    }
+    // }
 
     // 获得全部数据
     public function getAllData(){
@@ -98,10 +98,5 @@ class ArticleModel extends Model{
 
 
 
-
-
 }
-
-
-
 ?>
