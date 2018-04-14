@@ -1,8 +1,8 @@
 <?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>已删文章</title>
+    <meta charset="UTF-8" />
+    <title>标签列表</title>
 <script type="text/javascript" src="/Public/static/js/jquery-2.0.0.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/Public/static/bootstrap-3.3.2/css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="/Public/static/bootstrap-3.3.2/css/bootstrap-theme.min.css" />
@@ -20,37 +20,24 @@ $(document).ready(function(){
     });
 });
 </script>
-<style type="text/css">
-    table{
-        word-break: break-all;
-        word-wrap: break-word;
-    }
-</style>
 </head>
 <body>
     <table class="table table-bordered table-striped table-hover table-condensed">
         <thead>
             <tr>
-                <th width="5%">aid</th>
-                <th width="15%">所属分类</th>
-                <th width="20%">作者</th>
-                <th width="30%">标题</th>
-                <th width="30%">操作</th>
+                <th width="10%">tid</th>
+                <th width="20%">标签名</th>
+                <th width="10%">操作</th>
             </tr>
         </thead>
         <?php if(is_array($data)): foreach($data as $key=>$v): ?><tr>
-                <td><?php echo ($v['aid']); ?></td>
-                <td><?php echo ($v['cname']); ?></td>
-                <td><?php echo ($v['author']); ?></td>
-                <td><?php echo ($v['title']); ?></td>
+                <td><?php echo ($v['tid']); ?></td>
+                <td><?php echo ($v['tname']); ?></td>
                 <td>
-                    <a href="<?php echo U('Admin/Article/recover',array('aid'=>$v['aid']));?>">恢复</a>
-                    <a href="javascript:if(confirm('确定要删除吗？')) location='<?php echo U('Admin/Article/delete',array('aid'=>$v['aid']));?>'">彻底删除</a>
+                    <a href="<?php echo U('Admin/Tag/edit',array('tid'=>$v['tid']));?>">修改</a>
+                    <a href="javascript:if(confirm('确定要删除吗？')) location='<?php echo U('Admin/Tag/delete',array('tid'=>$v['tid']));?>'">删除</a>
                 </td>
             </tr><?php endforeach; endif; ?>
-    </table>
-    <div style="text-align: center;">
-        <?php echo ($page); ?>
-    </div>
+    </table>    
 </body>
 </html>
