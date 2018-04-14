@@ -45,7 +45,11 @@ class ArticleController extends AuthController{
     // 修改文章
     public function edit(){
         if(IS_POST){
-
+            if($this->db->editData()){
+                $this->success('修改成功');
+            }else{
+                $this->error('修改失败');
+            }
         }else{
             $aid=I('aid');
             $data=$this->db->getDataByAid($aid);
