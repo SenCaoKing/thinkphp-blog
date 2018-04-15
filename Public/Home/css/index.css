@@ -1,0 +1,37 @@
+@charset "utf-8"
+/* CSS Document */
+body {
+    background: #F8F8F8;
+    font-family: "Microsotf YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+/* 顶部导航开始 */
+#nav {
+    width: 100%;
+    height: 45px;
+    background: #333;
+}
+#nav .b-inside {
+    height: 45px;
+}
+#nav .b-inside .logo {
+    width: 200px;
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    float: left;
+}
+#nav .b-inside .category {
+    height: 45px;
+    float: left;
+}
+#nav .b-inside .category .cname {
+    padding: 0 15px;
+    height: 45px;
+    line-height: 45px;
+    float: left;
+    color: #fff;
+}
+#nav .b-inside .category .action {
+    background: #008CBA;
+}
+/* 顶部导航结束 */
