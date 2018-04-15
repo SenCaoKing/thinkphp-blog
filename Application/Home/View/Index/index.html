@@ -13,11 +13,11 @@
             <div class="logo">Sen个人博客</div>
             <ul class="category">
                 <li class="cname action">
-                    <a href="">首页</a>
+                    <a href="{:U('Home/Index/index')}">首页</a>
                 </li>
                 <foreach name="categorys" item="v">
-                    <li class="cname">
-                        <a href="">{$v['cname']}</a>
+                    <li class="cname <if condition="$Think.get.cid eq $v['cid']">action</if>">
+                        <a href="{:U('Home/Article/index',array('cid'=>$v['cid']))}">{$v['cname']}</a>
                     </li> 
                 </foreach>
             </ul>

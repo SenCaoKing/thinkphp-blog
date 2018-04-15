@@ -34,9 +34,9 @@ $(document).ready(function(){
             <div class="logo">Sen个人博客</div>
             <ul class="category">
                 <li class="cname action">
-                    <a href="">首页</a>
+                    <a href="<?php echo U('Home/Index/index');?>">首页</a>
                 </li>
-                <?php if(is_array($categorys)): foreach($categorys as $key=>$v): ?><li class="cname">
+                <?php if(is_array($categorys)): foreach($categorys as $key=>$v): ?><li class="cname <?php if($_GET['cid']== $v['cid']): ?>action<?php endif; ?>">
                         <a href=""><?php echo ($v['cname']); ?></a>
                     </li><?php endforeach; endif; ?>
             </ul>
