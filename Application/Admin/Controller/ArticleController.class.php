@@ -18,7 +18,7 @@ class ArticleController extends AdminBaseController{
 
     // 文章列表
     public function index(){
-        $data=$this->db->getPageData();
+        $data=$this->db->getAdminPageData();
         // p($data);
         $this->assign('data',$data['data']);
         $this->assign('page',$data['page']);

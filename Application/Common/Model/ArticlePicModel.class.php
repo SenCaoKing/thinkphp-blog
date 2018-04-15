@@ -30,6 +30,12 @@ class ArticlePicModel extends Model{
         return true;
     }
 
+    // 传递aid获取第一条数据作为文章的封面图片
+    public function getDataByAid($aid){
+        $data=$this->field('path')->where("aid=$aid")->order('ap_id asc')->limit(1)->select();
+        return $data[0]['path'];
+    }
+
 
 
 }

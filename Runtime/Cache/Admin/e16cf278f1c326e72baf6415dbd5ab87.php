@@ -27,8 +27,7 @@ $(document).ready(function(){
 </script>
 <style type="text/css">
     .inputword{
-        margin-left: 15px;
-        margin-right: 5px;
+        margin-left: 20px;
     }
 </style>
 

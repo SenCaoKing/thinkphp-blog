@@ -123,8 +123,8 @@ class ArticleModel extends Model{
         return $data;
     }
 
-    // 获得分页数据
-    public function getPageData($status=0,$limit=1){
+    // 获得分页数据 供后台文章列表使用
+    public function getAdminPageData($status=0,$limit=1){
         $count=$this->where(array('is_delete'=>$status))->count();
         $page=new \Think\Page($count,$limit);
         $show=$page->show();
@@ -142,6 +142,26 @@ class ArticleModel extends Model{
         }
         $data=array(
             'page'=>$show,
+            'data'=>$list,
+        );
+        return $data;
+    }
+
+    // 获得分页数据 供前台首页调用
+    public function getIndexPageData($status=0,$limit=10){
+        $count=$this->where(array('is_delete'=>$status))->count();
+        // p($count);
+        $page=new \Think\Page($count,$limit);
+        $show=$page->show();
+        $list=$this->where(array('is_delete'=>$status))->order('addtime')->limit($page->firstRow.','.$page->listRows)->select();
+        // p($list);
+        foreach($list as $k => $v){
+            $list[$k]['tids']=D('ArticleTag')->getDataByAid($v['aid'],'tname');
+            $list[$k]['pic_path']=D('ArticlePic')->getDataByAid($v['aid']);
+            $list[$k]['cid']=current(D('Category')->getDataByCid($v['cid'],'cid,cid,cname'));
+        }
+        $data=array(
+            'page'=>$page,
             'data'=>$list,
         );
         return $data;
