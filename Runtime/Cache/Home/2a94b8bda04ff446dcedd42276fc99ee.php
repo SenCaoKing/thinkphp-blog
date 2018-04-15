@@ -34,8 +34,9 @@ $(document).ready(function(){
             <div class="logo">Sen个人博客</div>
             <ul class="category">
                 <li class="cname action">首页</li>
-                <li class="cname">分类1</li>
-                <li class="cname">分类2</li>
+                <?php if(is_array($category)): foreach($category as $key=>$v): ?><li class="cname">
+                        <a href=""><?php echo ($v['cname']); ?></a>
+                    </li><?php endforeach; endif; ?>
             </ul>
         </div>
     </div>
@@ -120,16 +121,7 @@ $(document).ready(function(){
                 <div class="tags">
                     <h4 class="title">热门标签</h4>
                     <ul class="tags-ul">
-                        <li class="tname tstyle-1">Bootstrap</li>
-                        <li class="tname tstyle-2">Foundation</li>
-                        <li class="tname tstyle-3">网页模板</li>
-                        <li class="tname tstyle-1">Web工具</li>
-                        <li class="tname tstyle-2">设计趋势</li>
-                        <li class="tname tstyle-3">Html5</li>
-                        <li class="tname tstyle-1">CSS3</li>
-                        <li class="tname tstyle-2">PSD素材</li>
-                        <li class="tname tstyle-3">PDF电子书</li>
-                        <li class="tname tstyle-1">前端技巧</li>
+                    <?php if(is_array($tags)): foreach($tags as $key=>$v): ?><li class="tname tstyle-1"><a href=""><?php echo ($v['tname']); ?></a></li><?php endforeach; endif; ?>
                     </ul>
                 </div>
             </div>
