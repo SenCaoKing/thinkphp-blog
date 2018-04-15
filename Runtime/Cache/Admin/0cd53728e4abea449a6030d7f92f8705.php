@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>文章列表</title>
+    <title>已删文章</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <script type="text/javascript" src="/Public/static/js/jquery-2.0.0.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/Public/static/bootstrap-3.3.4/css/bootstrap.min.css" />
@@ -36,31 +36,21 @@ $(document).ready(function(){
     <table class="table table-bordered table-striped table-hover table-condensed">
         <thead>
             <tr>
-                <th width="3%">aid</th>
-                <th width="9%">所属栏目</th>
-                <th width="20%">标题</th>
-                <th width="8%">作者</th>
-                <th width="20%">标签</th>
-                <th width="7%">是否显示</th>
-                <th width="7%">是否置顶</th>
-                <th width="5%">点击数</th>
-                <th width="13%">发布时间</th>
-                <th width="8%">操作</th>
+                <th width="5%">aid</th>
+                <th width="15%">所属分类</th>
+                <th width="20%">作者</th>
+                <th width="30%">标题</th>
+                <th width="30%">操作</th>
             </tr>
         </thead>
         <?php if(is_array($data)): foreach($data as $key=>$v): ?><tr>
                 <td><?php echo ($v['aid']); ?></td>
                 <td><?php echo ($v['cname']); ?></td>
-                <td><?php echo ($v['title']); ?></td>
                 <td><?php echo ($v['author']); ?></td>
-                <td><?php echo ($v['tnames']); ?></td>
-                <td><?php echo ($v['is_show']); ?></td>
-                <td><?php echo ($v['is_top']); ?></td>
-                <td><?php echo ($v['click']); ?></td>
-                <td><?php echo (date('Y-m-d H:i:s',$v['addtime'])); ?></td>
+                <td><?php echo ($v['title']); ?></td>
                 <td>
-                    <a href="<?php echo U('Admin/Article/edit',array('aid'=>$v['aid']));?>">修改</a>
-                    <a href="javascript:if(confirm('确定要删除吗？')) location='<?php echo U('Admin/Article/recycle',array('aid'=>$v['aid']));?>'">删除</a>
+                    <a href="<?php echo U('Admin/Article/recover',array('aid'=>$v['aid']));?>">恢复</a>
+                    <a href="javascript:if(confirm('确定要删除吗？')) location='<?php echo U('Admin/Article/delete',array('aid'=>$v['aid']));?>'">彻底删除</a>
                 </td>
             </tr><?php endforeach; endif; ?>
     </table>
