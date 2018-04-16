@@ -1,14 +1,14 @@
 {
-    "name": "topthink/thinkphp",
-    "description": "the ThinkPHP Framework",
-    "type": "framework",
-    "keywords": ["framework","thinkphp","ORM"],
-    "homepage": "http://thinkphp.cn/",
+    "name": "SenBlog",
+    "description": "the thinkphp blog",
+    "type": "blog",
+    "keywords": ["SenBlog","thinkphp","blog"],
+    "homepage": "http://",
     "license": "Apache2",
     "authors": [
         {
-            "name": "liu21st",
-            "email": "liu21st@gmail.com"
+            "name": "Sen",
+            "email": "2814073941@qq.com"
         }
     ],
     "require": {

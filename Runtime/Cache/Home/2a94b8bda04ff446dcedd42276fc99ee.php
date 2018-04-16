@@ -31,13 +31,13 @@ $(document).ready(function(){
     <!-- 顶部导航开始 -->
     <div id="nav">
         <div class="b-inside">
-            <div class="logo">Sen个人博客</div>
+            <div class="logo"><a href="<?php echo U('Home/Index/index');?>">Sen个人博客</a></div>
             <ul class="category">
                 <li class="cname action">
                     <a href="<?php echo U('Home/Index/index');?>">首页</a>
                 </li>
                 <?php if(is_array($categorys)): foreach($categorys as $key=>$v): ?><li class="cname <?php if($_GET['cid']== $v['cid']): ?>action<?php endif; ?>">
-                        <a href="<?php echo U('Home/Article/index',array('cid'=>$v['cid']));?>"><?php echo ($v['cname']); ?></a>
+                        <a href="<?php echo U('Home/Index/category',array('cid'=>$v['cid']));?>"><?php echo ($v['cname']); ?></a>
                     </li><?php endforeach; endif; ?>
             </ul>
 
@@ -56,9 +56,9 @@ $(document).ready(function(){
                             <h3 class="title"><?php echo ($v['title']); ?></h3>
                             <ul class="metadata">
                                 <li class="date">发布时间：<?php echo (date('Y-m-d H:i:s',$v['addtime'])); ?></li>
-                                <li class="category">分类：<a href=""><?php echo ($v['cid']['cname']); ?></a></li>
-                                <?php if(!empty($v['tids'])): ?><li class="tags">标签：
-                                        <?php if(is_array($v['tids'])): foreach($v['tids'] as $key=>$n): ?><a href=""><?php echo ($n['tname']); ?></a><?php endforeach; endif; ?>
+                                <li class="category">分类：<a href=""><?php echo ($v['category']['cname']); ?></a></li>
+                                <?php if(!empty($v['tag'])): ?><li class="tags">标签：
+                                        <?php if(is_array($v['tag'])): foreach($v['tag'] as $key=>$n): ?><a href="<?php echo U('Home/Index/tag',array('tid'=>$n['tid']));?>"><?php echo ($n['tname']); ?></a><?php endforeach; endif; ?>
                                     </li><?php endif; ?>
                             </ul>
                             <div class="article">
@@ -84,9 +84,9 @@ $(document).ready(function(){
                 <div class="tags">
                     <h4 class="title">热门标签</h4>
                     <ul class="tags-ul">
-                    <?php if(is_array($tags)): foreach($tags as $k=>$v): ?><li class="tname">
-                            <a class="tstyle-1" href=""><?php echo ($v['tname']); ?></a>
-                        </li><?php endforeach; endif; ?>
+                        <?php if(is_array($tags)): foreach($tags as $k=>$v): ?><li class="tname">
+                                <a class="tstyle-<?php echo ($k); ?>" href="<?php echo U('Home/Index/tag',array('tid'=>$v['tid']));?>"><?php echo ($v['tname']); ?></a>
+                            </li><?php endforeach; endif; ?>
                     </ul>
                 </div>
             </div>
