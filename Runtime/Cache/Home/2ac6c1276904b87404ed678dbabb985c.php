@@ -51,7 +51,6 @@ $(document).ready(function(){
             <!-- 左侧列表开始 -->
             <div class="left">
                 <div class="list">
-
                     <?php if(is_array($articles)): foreach($articles as $key=>$v): ?><div class="detail">
                             <h3 class="title"><?php echo ($v['title']); ?></h3>
                             <ul class="metadata">
