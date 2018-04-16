@@ -107,22 +107,6 @@ class ArticleModel extends Model{
         }
     }
 
-    // 获得全部数据
-    // public function getAllData(){
-    //     $data=$this->order('addtime')->select();
-    //     foreach($data as $k => $v){
-    //         $tids=M('article_tag')->where(array('aid'=>$v['aid']))->getField('tid',true);
-    //         if(empty($tids)){
-    //             $data[$k]['tnames']='';
-    //         }else{
-    //             $tnames=D('Tag')->getTnames($tids);
-    //             $data[$k]['tnames']=implode('、', $tnames);
-    //         }
-    //         $data[$k]['cname']=D('Category')->getDataByCid($v['cid'],'cname');
-    //     }
-    //     return $data;
-    // }
-
     /**
      * 获得文章分页数据
      * @param  string  $cid         分类id 'all'为全部分类
@@ -167,6 +151,8 @@ class ArticleModel extends Model{
     public function getDataByAid($aid){
         $data=$this->where("aid=$aid")->find();
         $data['tids']=D('ArticleTag')->getDataByAid($aid);
+        $data['tag']=D('ArticleTag')->getDataByAid($data['aid'],'tname');
+        $data['category']=current(D('Category')->getDataByCid($data['cid'],'cid,cid,cname'));
         $data['content']=htmlspecialchars_decode($data['content']);
         return $data;
     }
