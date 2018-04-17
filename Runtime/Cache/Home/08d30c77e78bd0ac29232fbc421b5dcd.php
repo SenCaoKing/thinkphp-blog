@@ -95,12 +95,7 @@ $(document).ready(function(){
     <!-- 主题部分结束 -->
 
     <!-- 通用底部文件开始 -->
-    <div id="foot">
-        <div class="b-inside">
-            本站使用<a href="">Sen-Blog</a>开源博客框架搭建
-            站长Email:2814073941@qq.com
-        </div>
-    </div>
+    
     <!-- 通用底部文件结束 -->
     
 </body>
