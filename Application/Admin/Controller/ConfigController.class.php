@@ -29,10 +29,6 @@ class ConfigController extends AdminBaseController {
         }
     }
 
-    public function config(){
-        $this->display();
-    }
-
 
 
 }

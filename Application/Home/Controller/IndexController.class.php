@@ -15,7 +15,7 @@ class IndexController extends HomeBaseController {
     
     // 显示首页
     public function index(){
-        $image=new \Think\Image();
+        // $image=new \Think\Image();
         // $image->open('./1.jpg')->water('./logo.png',8,50)->save("water.jpg");
         $articles=D('Article')->getPageData();
 

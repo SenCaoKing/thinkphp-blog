@@ -1,11 +1,32 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>thinkblog后台管理</title>
-<bootstrap />
-<link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/css/index.css">
-<script type="text/javascript" src="__PUBLIC__/Admin/js/index.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script type="text/javascript" src="/Public/static/js/jquery-2.0.0.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/Public/static/bootstrap-3.3.4/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/Public/static/bootstrap-3.3.4/css/bootstrap-theme.min.css" />
+<link rel="stylesheet" type="text/css" href="/Public/static/font-awesome-4.3.0/css/font-awesome.min.css" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="/Public/static/js/html5shiv.min.js"></script>
+<script type="text/javascript" src="/Public/static/js/respond.min.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="/Public/static/css/bjy.css" />
+<script type="text/javascript" src="/Public/static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/Public/static/iCheck-1.0.2/icheck.min.js"></script>
+<link rel="stylesheet" href="/Public/static/iCheck-1.0.2/skins/all.css" />
+<script>
+$(document).ready(function(){
+    $('.icheck').iCheck({
+        checkboxClass: "icheckbox_square-blue",
+        radioClass: "iradio_square-blue",
+        increaseArea: 20%
+    });
+});
+</script>
+<link rel="stylesheet" type="text/css" href="/Public/Admin/css/index.css">
+<script type="text/javascript" src="/Public/Admin/js/index.js"></script>
 </head>
 <body>
 <!-- 顶部导航菜单开始 -->
@@ -53,11 +74,11 @@
                 <span class="fa fa-th"></span>文章管理
             </dt>
             <dd>
-                <a href="{:U('Admin/Article/add')}" target="right_content"></a>
+                <a href="<?php echo U('Admin/Article/add');?>" target="right_content"></a>
                 <span class="fa fa-caret-right"></span>添加文章
             </dd>           
             <dd>
-                <a href="{:U('Admin/Article/index')}" target="right_content"></a>
+                <a href="<?php echo U('Admin/Article/index');?>" target="right_content"></a>
                 <span class="fa fa-caret-right"></span>文章列表
             </dd>
         </dl>
@@ -66,11 +87,11 @@
                 <span class="fa fa-tags"></span>标签管理
             </dt>
             <dd>
-                <a href="{:U('Admin/Tag/add')}" target="right_content"></a>
+                <a href="<?php echo U('Admin/Tag/add');?>" target="right_content"></a>
                 <span class="fa fa-caret-right"></span>添加标签
             </dd>           
             <dd>
-                <a href="{:U('Admin/Tag/index')}" target="right_content"></a>
+                <a href="<?php echo U('Admin/Tag/index');?>" target="right_content"></a>
                 <span class="fa fa-caret-right"></span>标签列表
             </dd>
         </dl>
@@ -79,11 +100,11 @@
                 <span class="fa fa-columns"></span>分类管理
             </dt>
             <dd>
-                <a href="{:U('Admin/Category/add')}" target="right_content"></a>
+                <a href="<?php echo U('Admin/Category/add');?>" target="right_content"></a>
                 <span class="fa fa-caret-right"></span>添加分类
             </dd>
             <dd>
-                <a href="{:U('Admin/Category/index')}" target="right_content"></a>
+                <a href="<?php echo U('Admin/Category/index');?>" target="right_content"></a>
                 <span class="fa fa-caret-right"></span>分类列表
             </dd>
         </dl>
@@ -97,11 +118,11 @@
                 <span class="fa fa-th"></span>评论管理
             </dt>
             <dd>
-                <a href="{:U('Admin/Article/add')}" target="right_content"></a>
+                <a href="<?php echo U('Admin/Article/add');?>" target="right_content"></a>
                 <span class="fa fa-caret-right"></span>待审评论
             </dd>           
             <dd>
-                <a href="{:U('Admin/Article/index')}" target="right_content"></a>
+                <a href="<?php echo U('Admin/Article/index');?>" target="right_content"></a>
                 <span class="fa fa-caret-right"></span>已审评论
             </dd>
         </dl>
@@ -110,11 +131,11 @@
                 <span class="fa fa-th"></span>留言管理
             </dt>
             <dd>
-                <a href="{:U('Admin/Article/add')}" target="right_content"></a>
+                <a href="<?php echo U('Admin/Article/add');?>" target="right_content"></a>
                 <span class="fa fa-caret-right"></span>待审留言
             </dd>           
             <dd>
-                <a href="{:U('Admin/Article/index')}" target="right_content"></a>
+                <a href="<?php echo U('Admin/Article/index');?>" target="right_content"></a>
                 <span class="fa fa-caret-right"></span>已审留言
             </dd>
         </dl>
@@ -128,19 +149,19 @@
                 <span class="fa fa-th"></span>回收管理
             </dt>
             <dd>
-                <a href="{:U('Admin/Recycle/article')}" target="right_content"></a>
+                <a href="<?php echo U('Admin/Recycle/article');?>" target="right_content"></a>
                 <span class="fa fa-caret-right"></span>已删文章
             </dd>           
             <dd>
-                <a href="{:U('Admin/Article/index')}" target="right_content"></a>
+                <a href="<?php echo U('Admin/Article/index');?>" target="right_content"></a>
                 <span class="fa fa-caret-right"></span>已删评论
             </dd>
             <dd>
-                <a href="{:U('Admin/Article/index')}" target="right_content"></a>
+                <a href="<?php echo U('Admin/Article/index');?>" target="right_content"></a>
                 <span class="fa fa-caret-right"></span>已删留言
             </dd>
             <dd>
-                <a href="{:U('Admin/Article/index')}" target="right_content"></a>
+                <a href="<?php echo U('Admin/Article/index');?>" target="right_content"></a>
                 <span class="fa fa-caret-right"></span>已删链接
             </dd>
         </dl>
@@ -154,7 +175,7 @@
                 <span class="fa fa-th"></span>基本设置
             </dt>
             <dd>
-                <a href="{:U('Admin/Config/index')}" target="right_content"></a>
+                <a href="<?php echo U('Admin/Config/index');?>" target="right_content"></a>
                 <span class="fa fa-caret-right"></span>网站信息
             </dd>
         </dl>
@@ -163,11 +184,11 @@
                 <span class="fa fa-th"></span>友情链接
             </dt>
             <dd>
-                <a href="{:U('Admin/Link/add')}" target="right_content"></a>
+                <a href="<?php echo U('Admin/Link/add');?>" target="right_content"></a>
                 <span class="fa fa-caret-right"></span>添加链接
             </dd>           
             <dd>
-                <a href="{:U('Admin/Link/index')}" target="right_content"></a>
+                <a href="<?php echo U('Admin/Link/index');?>" target="right_content"></a>
                 <span class="fa fa-caret-right"></span>链接列表
             </dd>
         </dl>
@@ -178,7 +199,7 @@
 
 <!-- 右侧内容开始 -->
 <div id="content">
-    <iframe src="{:U('Admin/Index/welcome')}" frameborder="0" width="100%" height="100%" name="right_content" scrolling="auto" frameborder="0" scrolling="no"></iframe>
+    <iframe src="<?php echo U('Admin/Index/welcome');?>" frameborder="0" width="100%" height="100%" name="right_content" scrolling="auto" frameborder="0" scrolling="no"></iframe>
 </div>
 <!-- 右侧内容结束 -->
 
