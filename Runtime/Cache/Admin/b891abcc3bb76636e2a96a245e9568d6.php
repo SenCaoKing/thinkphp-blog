@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>链接列表</title>
+    <title>登录后台管理系统</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <script type="text/javascript" src="/Public/static/js/jquery-2.0.0.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/Public/static/bootstrap-3.3.4/css/bootstrap.min.css" />
@@ -25,36 +25,16 @@ $(document).ready(function(){
     });
 });
 </script>
+<link rel="stylesheet" href="/Template/default/Admin/Public/css/login.css" />
 </head>
 <body>
-    <table class="table table-bordered table-striped table-hover table-condensed">
-        <thead>
-            <tr>
-                <th width="10%">lid</th>
-                <th width="10%">排序</th>
-                <th width="20%">链接名</th>
-                <th width="35%">链接地址</th>
-                <th width="10%">是否显示</th>
-                <th width="15%">操作</th>
-            </tr>
-        </thead>
-            <tr>
-                <td></td>
-                <td>
-                    <input class="form-control" type="text" value="" />
-                </td>
-                <td></td>
-                <td></td>
-                <th>√</th>
-                <td>
-                    <a href="">添加子类</a>
-                    <a href="">修改</a>
-                    <a href="javascript:if(confirm('确定要删除吗？')) location='<?php echo U('Admin/Article/recycle',array('aid'=>$v['aid']));?>'">删除</a>
-                </td>
-            </tr>
-    </table>
-    <div style="text-align: center;">
-        <?php echo ($page); ?>
-    </div>
+    <form class="form-group" action="<?php echo U('Admin/Login/login');?>" method="post">
+        <div id="Login">
+            <input class="form-control modal-sm" type="password" placeholder="后台登录密码" name="ADMIN_PASSWORD" />
+            <input class="form-control modal-sm" type="text" placeholder="验证码" name="verify" />
+            <img class="verify" src="<?php echo U('Admin/Login/showVerify');?>" title="点击更换" onclick="this.src+='/'+Math.random();" />
+            <input class="btn btn-primary submit" type="submit" value="登录" />
+        </div>
+    </form>    
 </body>
 </html>

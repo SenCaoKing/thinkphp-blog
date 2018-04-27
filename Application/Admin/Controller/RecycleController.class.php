@@ -22,7 +22,31 @@ class RecycleController extends AdminBaseController{
         $this->assign('page',$data['page']);
         // p($data);
         $this->display();
-    }   
+    }
+
+    // 已删友情链接
+    public function link(){
+        $data=D('Link')->getDataBySate(1);
+        $this->assign('data',$data);
+        // p($data);die;
+        $this->display();
+    }
+
+    // 根据$_GET数组恢复删除
+    public function recover(){
+        $data=I('get.');
+        D($data['model_name'])->where(array($data['id_name']=>$data['id_number']))->setField('is_delete',0);
+        $this->success('恢复成功');
+    }
+
+    // 根据$_GET数组彻底删除
+    public function delete(){
+        $data=I('get.');
+        M($data['model_name'])->where(array($data['id_name']=>$data['id_number']))->delete();
+        $this->error('删除成功');
+    }
+
+
 
 
 

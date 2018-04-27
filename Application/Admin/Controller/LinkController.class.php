@@ -15,7 +15,7 @@ class LinkController extends AdminBaseController{
 
     // 友情链接列表
     public function index(){
-        $data=$this->db->getAllData();
+        $data=$this->db->getDataByState(0);
         $this->assign('data',$data);
         $this->display();
     }
@@ -56,16 +56,6 @@ class LinkController extends AdminBaseController{
             $this->success('放入回收站成功');
         }else{
             $this->error('放入回收站失败');
-        }
-    }
-
-    // 恢复删除
-    public function recover(){
-        // p($_GET);die;
-        if($this->db->recoverData()){
-            $this->success('恢复成功');
-        }else{
-            $this->error('恢复失败');
         }
     }
 

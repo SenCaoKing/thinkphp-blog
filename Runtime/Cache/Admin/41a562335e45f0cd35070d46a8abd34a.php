@@ -32,27 +32,27 @@ $(document).ready(function(){
 <!-- 顶部导航菜单开始 -->
 <div id="nav-top">
     <div class="nt-logo">
-        <a href=""></a>
+        <a href="<?php echo U('Admin/Index/index');?>"></a>
         <span>Thinkblog</span>
     </div>
     <ul class="nt-nav list-unstyled">
         <li class="ntn-li ntn-active">
-            <span class="glyphicon glyphicon-list-alt nt-ico"></span>
+            <span class="fa fa-list-ul nt-ico"></span>
             <br>
             内容管理
         </li>
         <li class="ntn-li">
-            <span class="glyphicon glyphicon-comment nt-ico"></span>
+            <span class="fa fa-comments nt-ico"></span>
             <br>
             留言评论
         </li>
         <li class="ntn-li">
-            <span class="glyphicon glyphicon-trash nt-ico"></span>
+            <span class="fa fa-trash nt-ico"></span>
             <br>
             回收管理
         </li>
         <li class="ntn-li">
-            <span class="glyphicon glyphicon-cog nt-ico"></span>
+            <span class="fa fa-cogs nt-ico"></span>
             <br>
             网站设置
         </li>
@@ -115,7 +115,7 @@ $(document).ready(function(){
     <div class="nl-con">
         <dl>
             <dt>
-                <span class="fa fa-th"></span>评论管理
+                <span class="fa fa-comment-o"></span>评论管理
             </dt>
             <dd>
                 <a href="<?php echo U('Admin/Article/add');?>" target="right_content"></a>
@@ -128,7 +128,7 @@ $(document).ready(function(){
         </dl>
         <dl>
             <dt>
-                <span class="fa fa-th"></span>留言管理
+                <span class="fa fa-list-alt"></span>留言管理
             </dt>
             <dd>
                 <a href="<?php echo U('Admin/Article/add');?>" target="right_content"></a>
@@ -146,7 +146,7 @@ $(document).ready(function(){
     <div class="nl-con">
         <dl>
             <dt>
-                <span class="fa fa-th"></span>回收管理
+                <span class="fa fa-trash-o"></span>回收管理
             </dt>
             <dd>
                 <a href="<?php echo U('Admin/Recycle/article');?>" target="right_content"></a>
@@ -161,7 +161,7 @@ $(document).ready(function(){
                 <span class="fa fa-caret-right"></span>已删留言
             </dd>
             <dd>
-                <a href="<?php echo U('Admin/Article/index');?>" target="right_content"></a>
+                <a href="<?php echo U('Admin/Recycle/link');?>" target="right_content"></a>
                 <span class="fa fa-caret-right"></span>已删链接
             </dd>
         </dl>
@@ -172,7 +172,7 @@ $(document).ready(function(){
     <div class="nl-con">
         <dl>
             <dt>
-                <span class="fa fa-th"></span>基本设置
+                <span class="fa fa-cog"></span>基本设置
             </dt>
             <dd>
                 <a href="<?php echo U('Admin/Config/index');?>" target="right_content"></a>
@@ -181,7 +181,7 @@ $(document).ready(function(){
         </dl>
         <dl>
             <dt>
-                <span class="fa fa-th"></span>友情链接
+                <span class="fa fa-heart"></span>友情链接
             </dt>
             <dd>
                 <a href="<?php echo U('Admin/Link/add');?>" target="right_content"></a>
