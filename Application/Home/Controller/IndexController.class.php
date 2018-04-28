@@ -41,8 +41,8 @@ class IndexController extends HomeBaseController {
     // 显示标签页
     public function tag(){
         $tid=I('get.tid',0,'intval');
-        $tname=D('Tag')->getDataByTid($tid,'tname');
         $articles=D('Article')->getPageData('all',$tid);
+        $tname=D('Tag')->getDataByTid($tid,'tname');
 
         $this->assign('categorys',$this->categorys);
         $this->assign('tags',$this->tags);
@@ -61,7 +61,6 @@ class IndexController extends HomeBaseController {
         $this->assign('tags',$this->tags);
         $this->assign('tname',$tname);
         $this->assign('article',$article);
-        // p($article);
         $this->display();
     }
 

@@ -17,6 +17,8 @@ class LinkModel extends Model{
             $data['url']='http://'.trim($data['url'],'http://');
             $lid=$this->add($data);
             return $lid;
+        }else{
+            return false;
         }
     }
 
@@ -27,6 +29,8 @@ class LinkModel extends Model{
             $data['url']='http://'.trim($data['url'],'http://');
             $this->where(array('lid'=>$data['lid']))->save($data);
             return true;
+        }else{
+            return false;
         }
     }
 

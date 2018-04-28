@@ -17,7 +17,6 @@ class TagController extends AdminBaseController {
     // 标签首页
     public function index(){
         $data=$this->db->getAllData();
-        // p($data);
         $this->assign('data',$data);
         $this->display();
     }

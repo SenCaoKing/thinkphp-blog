@@ -52,33 +52,41 @@ $(document).ready(function(){
         <div class="b-inside">
             <!-- 左侧列表开始 -->
             <div class="left">
-                <!-- 文章列表开始 -->
-                                <div class="list">
-                    <?php if(is_array($articles)): foreach($articles as $key=>$v): ?><div class="detail">
-                            <h3 class="title"><a href="<?php echo U('Home/Index/article',array('aid'=>$v['aid']));?>"><?php echo ($v['title']); ?></a></h3>
-                            <ul class="metadata">
-                                <li class="date">发布时间：<?php echo (date('Y-m-d H:i:s',$v['addtime'])); ?></li>
-                                <li class="category">分类：<a href=""><?php echo ($v['category']['cname']); ?></a></li>
-                                <?php if(!empty($v['tag'])): ?><li class="tags">标签：
-                                        <?php if(is_array($v['tag'])): foreach($v['tag'] as $key=>$n): ?><a href="<?php echo U('Home/Index/tag',array('tid'=>$n['tid']));?>"><?php echo ($n['tname']); ?></a><?php endforeach; endif; ?>
-                                    </li><?php endif; ?>
-                            </ul>
-                            <div class="article">
-                                <div class="pic">
-                                    <a href="<?php echo U('Home/Index/article',array('aid'=>$v['aid']));?>"><img src="<?php echo ($v['pic_path']); ?>" alt="" /></a>
-                                </div>
-                                <div class="word">
-                                    <p class="description">
-                                        <?php echo ($v['description']); ?>
-                                    </p>
-                                    <div class="readall">
-                                        <a href="readall-a" href="<?php echo U('Home/Index/article',array('aid'=>$v['aid']));?>">阅读全文</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><?php endforeach; endif; ?>
+                <div class="article">
+                    <h1 class="title"><?php echo ($article['title']); ?></h1>
+                    <ul class="metadata">
+                        <li class="date">发布时间：<?php echo (date('Y-m-d H:i:s',$article['addtime'])); ?></li>
+                        <li class="category">分类：<a href=""><?php echo ($article['category']['cname']); ?></a></li>
+                        <?php if(!empty($article['tag'])): ?><li class="tags">标签：
+                                <?php if(is_array($article['tag'])): foreach($article['tag'] as $key=>$v): ?><a href="<?php echo U('Home/Index/tag',array('tid'=>$v['tid']));?>"><?php echo ($v['tname']); ?></a><?php endforeach; endif; ?>
+                            </li><?php endif; ?>
+                    </ul>
+                    <div class="content-word">
+                        <?php echo ($article['content']); ?>
+                    </div>
                 </div>
-                <!-- 文章列表结束 -->
+                <div class="comment">
+                    <!-- 畅言评论系统开始 -->
+                                            <div id="cyEmoji" role="cylabs" data-use="emoji"></div>
+                        <div id="SOHUCS" sid="<?php echo ($_GET['aid']); ?>"></div>
+                        <script>
+                         (function(){
+                           var appid = 'cyrI0sOYy',
+                           conf = 'prod_db0d542248694818e192f9d9d0d7a2c1';
+                           var doc = document,
+                           s = doc.createElement('script'),
+                           h = doc.getElementsByTagName('head')[0] || doc.head || doc.documentElement;
+                           s.type = 'text/javascript';
+                           s.charset = 'utf-8';
+                           s.src =  'http://assets.changyan.sohu.com/upload/changyan.js?conf='+ conf +'&appid=' + appid;
+                           h.insertBefore(s,h.firstChild);
+                           window.SCS_NO_IFRAME = true;
+                         })()
+                       </script>
+                       <script type="text/javascript" charset="utf-8" src="http://changyan.itc.cn/js/??lib/jquery.js,changyan.labs.js?appid=cyrI0sOYy"></script>
+
+                    <!-- 畅言评论系统结束 -->
+                </div>
             </div>
             <!-- 左侧列表结束 -->
 
@@ -99,7 +107,7 @@ $(document).ready(function(){
     </div>
     <!-- 主题部分结束 -->
 
-    <!-- 底部文件开始 -->
+    <!-- 通用底部文件开始 -->
     <!-- 通用底部文件开始 -->
 <div id="foot">
     <div class="b-inside">
@@ -107,29 +115,7 @@ $(document).ready(function(){
     </div>
 </div>
 <!-- 通用底部文件结束 -->
-    <!-- 底部文件结束 -->
+    <!-- 通用底部文件结束 -->
 
-    <!-- 登陆框开始 -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title b-ta-center" id="myModalLabel">无需注册，用以下账号即可登录</h4>
-            </div>
-            <div class="modal-body">
-                <script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101206152" data-redirecturi="" charset="utf-8"></script>
-                <span id="qqLoginBtn"></span>
-                <script type="text/javascript">
-                    QC.Login({
-                        btnId:"qqLoginBtn" // 插入按钮的节点
-                    });
-                </script>
-                
-            </div>
-        </div>
-    </div>
-</div>
-    <!-- 登陆框结束 -->
 </body>
 </html>
