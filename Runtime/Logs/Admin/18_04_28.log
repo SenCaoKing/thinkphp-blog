@@ -1,0 +1,6 @@
+[ 2018-04-28T19:57:18+08:00 ] 127.0.0.1 /index.php/Admin/Login/showVerify.html/0.9169087681142509
+ERR: 非法操作:showVerify.html
+
+[ 2018-04-28T19:59:57+08:00 ] 127.0.0.1 /index.php/Admin/Recycle/link.html
+ERR: Think\Model:getDataBySate方法不存在！
+
